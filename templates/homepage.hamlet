@@ -2,6 +2,7 @@
     <div .page-header>
         <h1> HaskFlash
         <div .ui.center.aligned.segment>
+
             <a .ui.blue.button href="@{SetNewR}">
                 <i .plus.icon>
                 Add New Set
@@ -10,6 +11,10 @@
                 Import Sets
             <a .ui.basic.button href="#">
                 <i .download.icon>
-                Import Sets                
+                Import Sets
         <h2>
             Your Sets!
+        <div .ui.center.aligned.segment>
+            $forall Entity key flashCardSet <- rows
+                <a .ui.blue.button>
+                    #{flashCardSetName flashCardSet}
