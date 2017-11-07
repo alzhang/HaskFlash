@@ -14,7 +14,15 @@
                 Import Sets
         <h2>
             Your Sets!
-        <div .ui.center.aligned.segment>
+        <div .ui.four.column.grid>
             $forall Entity key flashCardSet <- rows
-                <a .ui.blue.button>
-                    #{flashCardSetName flashCardSet}
+                <div .column>
+                    <a .ui.card>
+                        <div .content>
+                            <div .header>
+                                #{flashCardSetName flashCardSet}
+                            <div .description>
+                                #{flashCardSetDescription flashCardSet}
+                            <div .extra.content>
+                                <div .right.floated.author>
+                                    <img .ui.avatar.image src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Haskell-Logo.svg"> Me
