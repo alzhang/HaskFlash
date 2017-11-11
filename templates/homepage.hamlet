@@ -1,28 +1,26 @@
-<div .container>
-    <div .page-header>
-        <h1> HaskFlash
-        <div .ui.center.aligned.segment>
+<div .ui.grid.container>
+    <h1 .ui.header> HaskFlash
+    <div .ui.labeled.icon.fluid.three.item.menu>
+        <a .blue.item href="@{SetNewR}">
+            <i .plus.icon>
+            Add New Set                
+        <a .item href="#">
+            <i .upload.icon> 
+            Import Sets
+        <a .item href="#">
+            <i .download.icon> 
+            Export Sets
 
-            <a .ui.blue.button href="@{SetNewR}">
-                <i .plus.icon>
-                Add New Set
-            <a .ui.basic.button href="#">
-                <i .upload.icon>
-                Import Sets
-            <a .ui.basic.button href="#">
-                <i .download.icon>
-                Import Sets
-        <h2>
-            Your Sets!
-        <div .ui.four.column.grid>
-            $forall Entity key flashCardSet <- rows
-                <div .column>
-                    <a .ui.card>
-                        <div .content>
-                            <div .header>
-                                #{flashCardSetName flashCardSet}
-                            <div .description>
-                                #{flashCardSetDescription flashCardSet}
-                            <div .extra.content>
-                                <div .right.floated.author>
-                                    <img .ui.avatar.image src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Haskell-Logo.svg"> Me
+    <h2 .ui.header> Your Sets!
+    <div .ui.grid.stackable.container>
+        $forall Entity flashCardId flashCardSet <- rows
+            <div .four.wide.column>
+                <a .ui.card href="@{CardMakerR flashCardId}">
+                    <div .content>
+                        <div .header>
+                            #{flashCardSetName flashCardSet}
+                        <div .description>
+                            #{flashCardSetDescription flashCardSet}
+                    <div .extra.content>
+                        <div .right.floated.author>
+                            <img .ui.avatar.image src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Haskell-Logo.svg"> Clyde Kruskal

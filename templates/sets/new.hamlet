@@ -2,4 +2,4 @@
 
 <form method=post action=@{SetNewR} enctype=#{enctype}>
     ^{widget}
-    <button class="btn btn-default"> Add Set!
+    <button .ui.primary.button> Save
