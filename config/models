@@ -17,5 +17,10 @@ FlashCardSet
     name Text
     description Text
     deriving Show
+FlashCard
+    parent FlashCardSetId
+    front Text
+    back Text
+    hint Text
 
  -- By default this file is used in Model.hs (which is imported by Foundation.hs)
