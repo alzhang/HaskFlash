@@ -5,7 +5,6 @@
 Libraries used:
 - [Yesod](https://www.yesodweb.com/)
 - [Semantic UI](https://semantic-ui.com/)
-- trollolol
 
 ## Features:
 - [x] Create your own flashcards/flashcard sets
