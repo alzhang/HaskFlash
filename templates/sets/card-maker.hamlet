@@ -1,4 +1,0 @@
-<h1> Current Set: #{flashCardSetName flashCardSet}
-<form method=post action=@{SetNewR} enctype=#{enctype}>
-    ^{cardMakerWidget}
-    <button .ui.primary.button> Save 
