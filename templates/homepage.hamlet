@@ -1,5 +1,6 @@
 <div .ui.grid.container>
-    <h1 .ui.header> HaskFlash
+    <div .row>
+        <h1 .ui.header> HaskFlash
     <div .ui.labeled.icon.fluid.three.item.menu>
         <a .blue.item href="@{SetNewR}">
             <i .plus.icon>
@@ -11,16 +12,19 @@
             <i .download.icon> 
             Export Sets
 
-    <h2 .ui.header> Your Sets!
-    <div .ui.grid.stackable.container>
-        $forall Entity flashCardId flashCardSet <- rows
-            <div .four.wide.column>
-                <a .ui.card href="@{CardMakerR flashCardId}">
-                    <div .content>
-                        <div .header>
-                            #{flashCardSetName flashCardSet}
-                        <div .description>
-                            #{flashCardSetDescription flashCardSet}
-                    <div .extra.content>
-                        <div .right.floated.author>
-                            <img .ui.avatar.image src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Haskell-Logo.svg"> Clyde Kruskal
+<div .ui.four.column.grid.stackable.container>
+    <div .row>
+        <h2 .ui.header> Your Sets!
+    $forall Entity flashCardSetId flashCardSet <- rows
+        <div .column>
+            <div .ui.card>
+                <div .content>
+                    <div .header> #{flashCardSetName flashCardSet}
+                    <div .description> #{flashCardSetDescription flashCardSet}
+                <div .extra>
+                    <a href=@{GameR flashCardSetId} .ui.right.floated.primary.button>
+                        <i .play.icon>
+                        Play
+                    <a href=@{CardMakerR flashCardSetId} .ui.right.floated.secondary.button>
+                        <i .play.icon>
+                        Add Card    

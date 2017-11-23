@@ -17,7 +17,6 @@ import Import
 
 getHomeR :: Handler Html
 getHomeR = do
-    let handlerName = "getHomeR" :: Text
     rows <- runDB $ selectList ([] :: [Filter FlashCardSet]) []
     defaultLayout $ do
         setTitle "HaskFlash"
