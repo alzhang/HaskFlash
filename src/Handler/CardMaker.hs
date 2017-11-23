@@ -49,7 +49,7 @@ postCardMakerR flashCardSetId = do
                 |]
                 [whamlet|
                     <div .ui.labeled.button>
-                        <a href=@{HomeR} .ui.positive.button>
+                        <a href=@{GameR flashCardSetId} .ui.positive.button>
                             <i .play.icon>
                             Play
                         <div .ui.green.basic.left.pointing.label>
