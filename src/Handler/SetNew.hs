@@ -24,6 +24,6 @@ postSetNewR = do
     ((res, widget), enctype) <- runFormPost $ renderBootstrap3 BootstrapBasicForm flashCardSetForm
     case res of 
         FormSuccess fcSet -> do
-            fcSetID <- runDB $ insert fcSet
+            _ <- runDB $ insert fcSet
             redirect $ HomeR
         _ -> defaultLayout $(widgetFile "sets/new")
