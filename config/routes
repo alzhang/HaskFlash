@@ -9,3 +9,4 @@
 /profile ProfileR GET
 sets/new SetNewR GET POST
 !sets/#FlashCardSetId CardMakerR GET POST
+/game/#FlashCardSetId GameR GET
