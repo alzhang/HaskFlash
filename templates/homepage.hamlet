@@ -1,16 +1,13 @@
 <div .ui.grid.container>
     <div .row>
         <h1 .ui.header> HaskFlash
-    <div .ui.labeled.icon.fluid.three.item.menu>
+    <div .ui.labeled.icon.fluid.two.item.menu>
         <a .blue.item href="@{SetNewR}">
             <i .plus.icon>
             Add New Set                
         <a .item href="#">
             <i .upload.icon> 
             Import Sets
-        <a .item href="#">
-            <i .download.icon> 
-            Export Sets
 
 <div .ui.four.column.grid.stackable.container>
     <div .row>
@@ -22,9 +19,8 @@
                     <div .header> #{flashCardSetName flashCardSet}
                     <div .description> #{flashCardSetDescription flashCardSet}
                 <div .extra>
-                    <a href=@{GameR flashCardSetId} .ui.right.floated.primary.button>
-                        <i .play.icon>
-                        Play
+                    <a href=@{CardsR flashCardSetId} .ui.right.floated.primary.button>
+                        View
                     <a href=@{CardMakerR flashCardSetId} .ui.right.floated.secondary.button>
                         <i .play.icon>
                         Add Card    
