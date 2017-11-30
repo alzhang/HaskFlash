@@ -1,6 +1,6 @@
 # HaskFlash
-> HaskFlash is a web app flashcard written in Haskell. 
-> Users can input sets of word pairs into the system and quiz themselves with random pairs. 
+> HaskFlash is a web app flashcard written in Haskell.
+> Users can input sets of word pairs into the system and quiz themselves with random pairs.
 
 Libraries used:
 - [Yesod](https://www.yesodweb.com/)
@@ -9,8 +9,8 @@ Libraries used:
 ## Features:
 - [x] Create your own flashcards/flashcard sets
 - [ ] Practice on your flashcards
-    - [ ] Enable Hints
-    - [ ] Enable answer validation to match back of flashcard
+    - [x] Enable Hints
+    - [x] Enable answer validation to match back of flashcard
     - [ ] Enable timing
     - [ ] Enable audio hints
 - [ ] Import/Export flashcard sets

@@ -39,13 +39,13 @@ renderCard setIdx cardIdx correct = do
                    defaultLayout $ do
                        [whamlet|
                            <div .ui.grid.middle.aligned.centered>
-                             <div .ui.card height=800>
-                                 <div .content>
-                                     <div .header>
-                                         #{flashCardFront cardLiteral}
-                                 <div .extra>
-                                    <form .ui.form method=post action=@{GameR setIdx cardIdx} enctype=#{enctype}>
-                                        ^{subFormWidget}
+                              <div .ui.card height=800>
+                                  <div .content>
+                                      <div .header>
+                                          #{flashCardFront cardLiteral}
+                                  <div .extra>
+                                     <form .ui.form method=post action=@{GameR setIdx cardIdx} enctype=#{enctype}>
+                                         ^{subFormWidget}
                        |]
                else
                    defaultLayout $ do
