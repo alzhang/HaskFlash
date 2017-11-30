@@ -149,7 +149,8 @@ instance Yesod App where
     isAuthorized SetNewR _ = return Authorized
     isAuthorized (CardMakerR _) _ = return Authorized
     isAuthorized (CardsR _) _ = return Authorized
-    isAuthorized (GameR _ _) _ = return Authorized    
+    isAuthorized (GameR _ _) _ = return Authorized
+    isAuthorized (WrongGameR _ _) _ = return Authorized      
     isAuthorized ProfileR _ = isAuthenticated
 
     -- This function creates static content files in the static folder
