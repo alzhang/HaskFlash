@@ -9,29 +9,64 @@ module Handler.Game where
 
 import Import
 import Control.Lens
+import Yesod.Form.Bootstrap3
+
+data Submission = Submission
+    { submission :: Text
+    } deriving Show
+
+fetchedCard :: FlashCardSetId -> Int -> HandlerT App IO (Maybe (Entity FlashCard))
+fetchedCard flashCardSetId cardIndex = runDB $ do {
+                         ; ps <- selectList ([FlashCardParent ==. flashCardSetId]) []
+                         ; return (ps ^? ix cardIndex)
+                   }
+
+submissionForm :: AForm Handler Submission
+submissionForm = Submission
+    <$> areq textField (bfs ("submission" :: Text)) Nothing
+
+renderCard :: FlashCardSetId -> Int -> Bool -> Handler Html
+renderCard setIdx cardIdx correct = do
+         (subFormWidget, enctype) <- generateFormPost $ renderBootstrap3 BootstrapBasicForm submissionForm
+         card <- fetchedCard setIdx cardIdx
+         case card of
+           Nothing -> defaultLayout $ do
+              [whamlet|
+                Error code: Shit happened because of Rex
+              |]
+           Just (Entity _ cardLiteral) ->
+               defaultLayout $ do
+                   [whamlet|
+                       <div .ui.grid.middle.aligned.centered>
+                         <div .ui.card height=800>
+                             <div .content>
+                                 <div .header>
+                                     #{flashCardFront cardLiteral}
+                                 <form .ui.form method=post action=@{GameR setIdx cardIdx} enctype=#{enctype}>
+                                     ^{subFormWidget}
+                   |]
 
 getGameR :: FlashCardSetId -> Int -> Handler Html
 getGameR flashCardSetId cardIndex = do
-    firstCard <- runDB $ do {
-                             ; ps <- selectList ([FlashCardParent ==. flashCardSetId]) []
-                             ; return (ps ^? ix cardIndex)
-                            }
+    renderCard flashCardSetId cardIndex True
 
-    case firstCard of
-      Nothing -> defaultLayout $ do
-         [whamlet|
-           fuck rex
-         |]
-      Just (Entity cardId cardLiteral) ->
-          defaultLayout $ do
-              [whamlet|
-                  <div .ui.grid.middle.aligned.centered>
-                    <div .ui.card height=800>
-                        <div .content>
-                            <div .header>
-                                #{flashCardFront cardLiteral}
-                            <div .description>
-                                <b>Answer</b>: #{flashCardBack cardLiteral}
-                            <form method=get action=@{GameR flashCardSetId (cardIndex + 1)}>
-                                <button .ui.primary.button> Next
-              |]
+postGameR :: FlashCardSetId -> Int -> Handler Html
+postGameR flashCardSetId cardIndex = do
+    ((res, _), _) <- runFormPost $ renderBootstrap3 BootstrapBasicForm submissionForm
+    case res of
+        FormSuccess sub -> do
+            currentCard <- fetchedCard flashCardSetId cardIndex
+            case currentCard of
+              Nothing -> defaultLayout $ do
+                 [whamlet|
+                   Error code: Fuck Rex
+                 |]
+              Just (Entity _ cardLiteral) ->
+                 if ((flashCardBack cardLiteral) == submission sub) then
+                     redirect $ (GameR flashCardSetId (cardIndex + 1))
+                 else
+                     redirect $ (GameR flashCardSetId (cardIndex))
+        _ -> defaultLayout $ do
+           [whamlet|
+             Error code: Form Submission fucked by Rex
+           |]
