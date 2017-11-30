@@ -13,12 +13,12 @@ getCardsR :: FlashCardSetId -> Handler Html
 getCardsR flashCardSetId = do
     flashcards <- runDB $ selectList ([FlashCardParent ==. flashCardSetId]) []
     defaultLayout $ do
-        [whamlet| 
+        [whamlet|
             <div .ui.labeled.icon.fluid.two.item.menu>
-                <a .item href="@{GameR flashCardSetId}">
+                <a .item href="@{GameR flashCardSetId 0}">
                     Play
                 <a .item href="TODO">
-                    <i .download.icon> 
+                    <i .download.icon>
                     Export Sets
 
             <div .ui.four.cards>
