@@ -8,7 +8,7 @@ Libraries used:
 
 ## Features:
 - [x] Create your own flashcards/flashcard sets
-- [ ] Practice on your flashcards
+- [x] Practice on your flashcards
     - [x] Enable Hints
     - [x] Enable answer validation to match back of flashcard
     - [ ] Enable timing
