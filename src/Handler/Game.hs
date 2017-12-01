@@ -35,33 +35,21 @@ renderCard setIdx cardIdx correct = do
                 Error code: Shit happened because of Rex
               |]
            Just (Entity _ cardLiteral) ->
-               if correct then
-                   defaultLayout $ do
-                       [whamlet|
-                           <div .ui.grid.middle.aligned.centered>
-                              <div .ui.card height=800>
-                                  <div .content>
-                                      <div .header>
-                                          #{flashCardFront cardLiteral}
-                                  <div .extra>
-                                     <form .ui.form method=post action=@{GameR setIdx cardIdx} enctype=#{enctype}>
-                                         ^{subFormWidget}
-                       |]
-               else
-                   defaultLayout $ do
-                       [whamlet|
-                           <div .ui.grid.middle.aligned.centered>
-                             <div .ui.card height=800>
-                                 <div .content>
-                                     <div .header>
-                                         #{flashCardFront cardLiteral}
-                                     <div .description>
-                                         <span .left.floated>
-                                             Hint: #{flashCardHint cardLiteral}
-                                 <div .extra>
-                                    <form .ui.form method=post action=@{GameR setIdx cardIdx} enctype=#{enctype}>
-                                        ^{subFormWidget}
-                       |]
+               defaultLayout $ do
+                   [whamlet|
+                       <div .ui.grid.middle.aligned.centered>
+                           <div .ui.card height=800>
+                               <div .content>
+                                   <div .header>
+                                       #{flashCardFront cardLiteral}
+                                   $if not correct
+                                       <div .description>
+                                           <span .left.floated>
+                                               Hint: #{flashCardHint cardLiteral}
+                               <div .extra>
+                                  <form .ui.form method=post action=@{GameR setIdx cardIdx} enctype=#{enctype}>
+                                      ^{subFormWidget}
+                   |]
 
 getGameR :: FlashCardSetId -> Int -> Handler Html
 getGameR flashCardSetId cardIndex = do
