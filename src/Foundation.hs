@@ -150,7 +150,6 @@ instance Yesod App where
     isAuthorized (CardMakerR _) _ = return Authorized
     isAuthorized (CardsR _) _ = return Authorized
     isAuthorized (GameR _ _) _ = return Authorized
-    isAuthorized (WrongGameR _ _) _ = return Authorized
     isAuthorized (ExportSetR _) _ = return Authorized   
     isAuthorized ProfileR _ = isAuthenticated
 
