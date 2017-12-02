@@ -17,7 +17,7 @@ getCardsR flashCardSetId = do
             <div .ui.labeled.icon.fluid.two.item.menu>
                 <a .item href="@{GameR flashCardSetId 0}">
                     Play
-                <a .item href="TODO">
+                <a .item href="@{ExportSetR flashCardSetId}">
                     <i .download.icon>
                     Export Sets
 

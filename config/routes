@@ -11,3 +11,5 @@ sets/new SetNewR GET POST
 !sets/#FlashCardSetId CardMakerR GET POST
 game/#FlashCardSetId/#Int GameR GET POST
 cards/#FlashCardSetId CardsR GET
+/importset ImportSetR POST
+/export/#FlashCardSetId ExportSetR GET
