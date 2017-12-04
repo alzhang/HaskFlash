@@ -9,8 +9,7 @@
 /profile ProfileR GET
 sets/new SetNewR GET POST
 !sets/#FlashCardSetId CardMakerR GET POST
-/game/#FlashCardSetId/#Int GameR GET POST
-/game/#FlashCardSetId/#Int/wrong WrongGameR GET POST
+game/#FlashCardSetId/#Int GameR GET POST
 cards/#FlashCardSetId CardsR GET
 /importset ImportSetR GET POST
 /export/#FlashCardSetId ExportSetR GET
