@@ -151,7 +151,8 @@ instance Yesod App where
     isAuthorized (CardsR _) _ = return Authorized
     isAuthorized (GameR _ _) _ = return Authorized
     isAuthorized (WrongGameR _ _) _ = return Authorized
-    isAuthorized (ExportSetR _) _ = return Authorized   
+    isAuthorized (ExportSetR _) _ = return Authorized
+    isAuthorized (ImportSetR) _ = return Authorized  
     isAuthorized ProfileR _ = isAuthenticated
 
     -- This function creates static content files in the static folder

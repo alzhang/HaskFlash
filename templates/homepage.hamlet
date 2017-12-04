@@ -4,9 +4,9 @@
     <div .ui.labeled.icon.fluid.two.item.menu>
         <a .blue.item href="@{SetNewR}">
             <i .plus.icon>
-            Add New Set                
-        <a .item href="#">
-            <i .upload.icon> 
+            Add New Set
+        <a .item href="@{ImportSetR}">
+            <i .upload.icon>
             Import Sets
 
 <div .ui.four.column.grid.stackable.container>
@@ -23,4 +23,4 @@
                         View
                     <a href=@{CardMakerR flashCardSetId} .ui.right.floated.secondary.button>
                         <i .play.icon>
-                        Add Card    
+                        Add Card
