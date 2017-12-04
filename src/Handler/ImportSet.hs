@@ -9,6 +9,7 @@ module Handler.ImportSet where
 
 import Import
 import Yesod.Form.Bootstrap3
+import Data.Conduit.Binary
 
 fileUploadForm :: AForm Handler FileInfo
 fileUploadForm = fileAFormReq "Required file"
@@ -29,9 +30,10 @@ postImportSetR = do
   ((result, _), _) <- runFormPost $ renderBootstrap3 BootstrapBasicForm fileUploadForm
   case result of
      FormSuccess res -> do
-          let a = fileName res
+          bytes <- runResourceT $ fileSource res $$ sinkLbs
+          let realTalk = decodeUtf8 bytes
           defaultLayout $ do [whamlet|
-                 ^{a}
+                 ^{realTalk}
                |]
      _ -> defaultLayout $ do [whamlet|
             Error code: Rex fucks it up again...
