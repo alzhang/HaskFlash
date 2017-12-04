@@ -31,13 +31,8 @@ getExportSetR :: FlashCardSetId -> Handler Html
 getExportSetR flashCardSetId = do
     setNameEntity <- runDB $ get404 flashCardSetId
     allCards <- runDB $ selectList [FlashCardParent ==. flashCardSetId] []
-    let filename =  "export.csv"
+    let filename =  flashCardSetName setNameEntity ++ "_export.csv"
     addHeader "Content-Disposition" $ Text.concat
         [ "attachment; filename=\"", filename, "\""]
-    let body = Text.concat [
-                            flashCardSetName setNameEntity
-                           , ","
-                           , "\n"
-                           , (Text.concat (transformCards allCards))
-                           ]
+    let body = Text.concat (transformCards allCards)
     sendResponse (typePlain, toContent $ body)
