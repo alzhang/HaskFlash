@@ -11,4 +11,4 @@ before_install:
 
 
 install:
- - cabal install
+ - stack install
