@@ -15,7 +15,7 @@ Libraries used:
     - [ ] Enable audio hints
 - [x] Import/Export flashcard sets
 - [ ] Authentication (Unique flashcard sets for users)
-
+- [ ] Host on Heroku
 ## Development Setup
 ```sh
 git clone https://github.com/alzhang/HaskFlash
