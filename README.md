@@ -1,4 +1,4 @@
-# HaskFlash
+# HaskFlash [![Build Status](https://travis-ci.org/alzhang/HaskFlash.svg?branch=master)](https://travis-ci.org/alzhang/HaskFlash)
 > HaskFlash is a web app flashcard written in Haskell.
 > Users can input sets of word pairs into the system and quiz themselves with random pairs.
 
