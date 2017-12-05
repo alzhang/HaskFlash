@@ -1,8 +1,17 @@
 language: haskell
 
 env:
- - GHCVER=8.0.2 # see note about Alex/Happy
+ - GHCVER=8.0.2
 
+addons:
+  apt:
+    packages:
+      - libgmp-dev
+
+cache:
+  directories:
+    - $HOME/.stack
+   
 before_install:
 # Download and unpack the stack executable
 - mkdir -p ~/.local/bin
