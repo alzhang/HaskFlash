@@ -23,3 +23,6 @@ before_install:
 install:
  - stack setup
  - stack install
+
+script:
+ - echo "Hello World!"
