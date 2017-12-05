@@ -13,7 +13,7 @@ Libraries used:
     - [x] Enable answer validation to match back of flashcard
     - [ ] Enable timing
     - [ ] Enable audio hints
-- [ ] Import/Export flashcard sets
+- [x] Import/Export flashcard sets
 - [ ] Authentication (Unique flashcard sets for users)
 
 ## Development Setup
