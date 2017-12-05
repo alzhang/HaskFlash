@@ -11,8 +11,6 @@ Libraries used:
 - [x] Practice on your flashcards
     - [x] Enable Hints
     - [x] Enable answer validation to match back of flashcard
-    - [ ] Enable timing
-    - [ ] Enable audio hints
 - [x] Import/Export flashcard sets
 - [ ] Authentication (Unique flashcard sets for users)
 - [ ] Host on Heroku
