@@ -12,7 +12,7 @@ Libraries used:
     - [x] Enable Hints
     - [x] Enable answer validation to match back of flashcard
 - [x] Import/Export flashcard sets
-- [ ] Travis-CI Integration
+- [x] Travis-CI Integration
 - [ ] Authentication (Unique flashcard sets for users)
 - [ ] Host on Heroku
 ## Development Setup
